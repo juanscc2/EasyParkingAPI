@@ -13,7 +13,7 @@ namespace EasyParking.Api.Data.Models
 
         
 
-        public ICollection<User> Usuarios { get; set; }
+        public ICollection<User> Users { get; set; }
 
 
 

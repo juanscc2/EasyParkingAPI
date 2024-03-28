@@ -1,4 +1,4 @@
-﻿namespace EasyParking.Api.Data.DTOS
+﻿namespace EasyParking.Api.Data.DTOS.Request
 {
     public class AuthenticationRequest
     {

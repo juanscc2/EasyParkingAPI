@@ -1,5 +1,6 @@
 using EasyParking.Api.Data;
-using EasyParking.Api.Services.UserService;
+using EasyParking.Api.Services.Contracts;
+using EasyParking.Api.Services.Implementation;
 using FluentAssertions.Common;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
@@ -18,7 +19,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IAutentication, AuthenticacionService>();
+builder.Services.AddScoped<UserService, UserServiceImplement>();
 
 
 

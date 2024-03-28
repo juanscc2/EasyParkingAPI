@@ -1,7 +1,7 @@
 ﻿using EasyParking.Api.Data;
-using EasyParking.Api.Data.DTOS;
+using EasyParking.Api.Data.DTOS.Request;
 using EasyParking.Api.Data.Models;
-using EasyParking.Api.Services.UserService;
+using EasyParking.Api.Services.Contracts;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,9 +14,9 @@ namespace EasyParking.Api.Controllers
     [ApiController]
     public class AuthenticationUser : ControllerBase
     {
-        private readonly IAutentication _authenticationService;
+        private readonly UserService _authenticationService;
 
-        public AuthenticationUser (IAutentication autentication)
+        public AuthenticationUser (UserService autentication)
         {
             _authenticationService = autentication;
         }
@@ -29,17 +29,16 @@ namespace EasyParking.Api.Controllers
                 return BadRequest(new { message = "Por favor, proporcione nombre de usuario y contraseña" });
             }
 
-            bool isAuthenticated = await _authenticationService.AuthenticateAsync(model.Username, model.Password);
+            bool isAuthenticated = await _authenticationService.AuthenticateAsync(model);
 
             if (isAuthenticated)
             {
                 
-                return Ok("Inicio de sesion exitoso");
+                return Ok();
             }
-            else
-            {
+           
                 return Unauthorized("Tus credenciales no coinciden");
-            }
+           
         }
     }
 }

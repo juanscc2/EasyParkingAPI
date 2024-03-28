@@ -9,14 +9,14 @@ namespace EasyParking.Api.Data
             : base(options) { 
 
         }
-        public DbSet<User> Users { get; set; }
+        public DbSet<User> User { get; set; }
 
-        public DbSet<Role> Roles { get; set; }
+        public DbSet<Role> Role { get; set; }
 
-        public DbSet<Helmet> Helmets { get; set;}
+        public DbSet<Helmet> Helmet { get; set;}
 
-        public DbSet<Bill> bills { get; set; }
+        public DbSet<Bill> Bill { get; set; }
 
-        public DbSet<Vehicle> vehicles { get; set; }
+        public DbSet<Vehicle> Vehicle { get; set; }
     }
 }

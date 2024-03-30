@@ -20,7 +20,7 @@ namespace EasyParking.Api.Controllers
         {
             _authenticationService = autentication;
         }
-        [HttpPost("login")]
+        [HttpPost("Authentication")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         public async Task <IActionResult> Login([FromBody] AuthenticationRequest model)
         {

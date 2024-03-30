@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EasyParking.Api.Migrations
 {
     [DbContext(typeof(EasyParkingContext))]
-    [Migration("20240326013917_InitDB2")]
-    partial class InitDB2
+    [Migration("20240330041801_DatabaseCreated")]
+    partial class DatabaseCreated
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,7 +48,7 @@ namespace EasyParking.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("bills");
+                    b.ToTable("Bill");
                 });
 
             modelBuilder.Entity("EasyParking.Api.Data.Models.Helmet", b =>
@@ -73,7 +73,7 @@ namespace EasyParking.Api.Migrations
 
                     b.HasIndex("IdUser");
 
-                    b.ToTable("Helmets");
+                    b.ToTable("Helmet");
                 });
 
             modelBuilder.Entity("EasyParking.Api.Data.Models.Role", b =>
@@ -90,7 +90,7 @@ namespace EasyParking.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Roles");
+                    b.ToTable("Role");
                 });
 
             modelBuilder.Entity("EasyParking.Api.Data.Models.User", b =>
@@ -120,7 +120,7 @@ namespace EasyParking.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("User");
                 });
 
             modelBuilder.Entity("EasyParking.Api.Data.Models.Vehicle", b =>
@@ -142,13 +142,13 @@ namespace EasyParking.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("vehicles");
+                    b.ToTable("Vehicle");
                 });
 
             modelBuilder.Entity("EasyParking.Api.Data.Models.Bill", b =>
                 {
                     b.HasOne("EasyParking.Api.Data.Models.User", "Users")
-                        .WithMany("Bills")
+                        .WithMany("Bill")
                         .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -158,19 +158,19 @@ namespace EasyParking.Api.Migrations
 
             modelBuilder.Entity("EasyParking.Api.Data.Models.Helmet", b =>
                 {
-                    b.HasOne("EasyParking.Api.Data.Models.User", "Users")
-                        .WithMany("Helmets")
+                    b.HasOne("EasyParking.Api.Data.Models.User", "User")
+                        .WithMany("Helmet")
                         .HasForeignKey("IdUser")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Users");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("EasyParking.Api.Data.Models.User", b =>
                 {
                     b.HasOne("EasyParking.Api.Data.Models.Role", "Role")
-                        .WithMany("Usuarios")
+                        .WithMany("User")
                         .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -181,7 +181,7 @@ namespace EasyParking.Api.Migrations
             modelBuilder.Entity("EasyParking.Api.Data.Models.Vehicle", b =>
                 {
                     b.HasOne("EasyParking.Api.Data.Models.User", "Users")
-                        .WithMany("Vehicles")
+                        .WithMany("Vehicle")
                         .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -191,16 +191,16 @@ namespace EasyParking.Api.Migrations
 
             modelBuilder.Entity("EasyParking.Api.Data.Models.Role", b =>
                 {
-                    b.Navigation("Usuarios");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("EasyParking.Api.Data.Models.User", b =>
                 {
-                    b.Navigation("Bills");
+                    b.Navigation("Bill");
 
-                    b.Navigation("Helmets");
+                    b.Navigation("Helmet");
 
-                    b.Navigation("Vehicles");
+                    b.Navigation("Vehicle");
                 });
 #pragma warning restore 612, 618
         }

@@ -22,9 +22,9 @@ namespace EasyParking.Api.Data.Models
         
         public virtual Role Role { get; set; }
 
-        public ICollection<Helmet> Helmets { get; set; }
+        public ICollection<Helmet> Helmet { get; set; }
 
-        public ICollection<Vehicle> Vehicles { get; set; }
-        public ICollection<Bill> Bills { get; set; }
+        public ICollection<Vehicle> Vehicle { get; set; }
+        public ICollection<Bill> Bill { get; set; }
     }
 }

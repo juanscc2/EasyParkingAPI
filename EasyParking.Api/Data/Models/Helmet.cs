@@ -15,6 +15,6 @@ namespace EasyParking.Api.Data.Models
 
         public int IdUser { get; set; } 
         [ForeignKey("IdUser")]
-        public virtual User Users { get; set; }
+        public virtual User User { get; set; }
     }
 }

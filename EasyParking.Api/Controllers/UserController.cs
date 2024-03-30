@@ -1,5 +1,6 @@
 ﻿using EasyParking.Api.Data;
 using EasyParking.Api.Data.DTOS.Request;
+using EasyParking.Api.Data.DTOS.Response;
 using EasyParking.Api.Data.Models;
 using EasyParking.Api.Services.Contracts;
 using Microsoft.AspNetCore.Http;
@@ -57,6 +58,33 @@ namespace EasyParking.Api.Controllers
                 return StatusCode(500, $"Error al crear el usuario: {ex.Message}");
             }
         }
-        
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateUser(int id, [FromBody] UpdateUserRequest model)
+        {
+            try
+            {
+                var updatedUser = await _userService.UpdateUserAsync(id, model);
+                var updateUserDTO = new UserResponse
+                {
+                    username = updatedUser.Username,
+                    email = updatedUser.Email,
+                    name = updatedUser.Name,
+                };
+                return Ok(updateUserDTO);
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message == "Usuario no encontrado")
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    return BadRequest(ex.Message);
+                }
+            }
+        }
+
+
     }
 }

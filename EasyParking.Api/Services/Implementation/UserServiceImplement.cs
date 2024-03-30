@@ -71,6 +71,28 @@
 
             return userDTOs;
         }
+
+        public async Task<User> UpdateUserAsync(int id, UpdateUserRequest model)
+        {
+            var user = await _context.User.FindAsync(id);
+            if (user == null)
+            {
+                throw new Exception("Usuario no encontrado");
+            }
+
+            // Actualizar propiedades del usuario con los datos del modelo
+            user.Username = model.UserName;
+            user.Name = model.Name;
+            user.Email = model.Email;
+            user.IdRole = model.IdRole;
+            // Agrega otras propiedades según sea necesario
+
+            // Marcar el usuario como modificado en el contexto y guardar los cambios
+            _context.Entry(user).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return user;
+        }
     }
 
 }

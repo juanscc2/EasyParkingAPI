@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace EasyParking.Api.Migrations
 {
     /// <inheritdoc />
-    public partial class InitDB : Migration
+    public partial class DatabaseCreated : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Roles",
+                name: "Role",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -21,32 +21,33 @@ namespace EasyParking.Api.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Roles", x => x.Id);
+                    table.PrimaryKey("PK_Role", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Users",
+                name: "User",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IdRole = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.Id);
+                    table.PrimaryKey("PK_User", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Users_Roles_Id",
+                        name: "FK_User_Role_Id",
                         column: x => x.Id,
-                        principalTable: "Roles",
+                        principalTable: "Role",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "bills",
+                name: "Bill",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
@@ -58,17 +59,17 @@ namespace EasyParking.Api.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_bills", x => x.Id);
+                    table.PrimaryKey("PK_Bill", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_bills_Users_Id",
+                        name: "FK_Bill_User_Id",
                         column: x => x.Id,
-                        principalTable: "Users",
+                        principalTable: "User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Helmets",
+                name: "Helmet",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -79,17 +80,17 @@ namespace EasyParking.Api.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Helmets", x => x.Id);
+                    table.PrimaryKey("PK_Helmet", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Helmets_Users_IdUser",
+                        name: "FK_Helmet_User_IdUser",
                         column: x => x.IdUser,
-                        principalTable: "Users",
+                        principalTable: "User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "vehicles",
+                name: "Vehicle",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
@@ -99,18 +100,18 @@ namespace EasyParking.Api.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_vehicles", x => x.Id);
+                    table.PrimaryKey("PK_Vehicle", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_vehicles_Users_Id",
+                        name: "FK_Vehicle_User_Id",
                         column: x => x.Id,
-                        principalTable: "Users",
+                        principalTable: "User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Helmets_IdUser",
-                table: "Helmets",
+                name: "IX_Helmet_IdUser",
+                table: "Helmet",
                 column: "IdUser");
         }
 
@@ -118,19 +119,19 @@ namespace EasyParking.Api.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "bills");
+                name: "Bill");
 
             migrationBuilder.DropTable(
-                name: "Helmets");
+                name: "Helmet");
 
             migrationBuilder.DropTable(
-                name: "vehicles");
+                name: "Vehicle");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "User");
 
             migrationBuilder.DropTable(
-                name: "Roles");
+                name: "Role");
         }
     }
 }

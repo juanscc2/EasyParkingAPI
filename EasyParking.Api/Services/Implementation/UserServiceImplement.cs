@@ -3,10 +3,12 @@
 {
     using EasyParking.Api.Data;
     using EasyParking.Api.Data.DTOS.Request;
+    using EasyParking.Api.Data.DTOS.Response;
     using EasyParking.Api.Data.Models;
     using EasyParking.Api.Services.Contracts;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata;
+    using System.Collections.Generic;
     using System.Threading.Tasks;
 
     public class UserServiceImplement : UserService
@@ -33,7 +35,7 @@
             // Crear una nueva instancia de Usuario con los datos proporcionados
             var newUser = new User
             {
-                Id = userRequest.Id,
+                Id=userRequest.Id,
                 Username = userRequest.username,
                 Email = userRequest.email,
                 Password = userRequest.password,
@@ -48,5 +50,28 @@
             // Devolver true para indicar que el usuario se creó exitosamente
             return true;
         }
+
+        public async Task<List<UserResponse>> GetUsersAsync()
+        {
+            var users = await _context.User.ToListAsync();
+            var userDTOs = new List<UserResponse>();
+
+            foreach (var user in users)
+            {
+                var userDTO = new UserResponse
+                {
+                    username = user.Username,
+                    email = user.Email,
+                    name=user.Name,
+                    
+                };
+
+                userDTOs.Add(userDTO);
+            }
+
+            return userDTOs;
+        }
     }
+
 }
+

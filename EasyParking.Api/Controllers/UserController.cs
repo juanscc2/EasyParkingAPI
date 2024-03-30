@@ -18,14 +18,24 @@ namespace EasyParking.Api.Controllers
         {
             _userService = userService;
         }
-        private EasyParkingContext _context;
-
         
-        [HttpGet]
-        public IEnumerable<User> Get() => _context.User.ToList();
-        [HttpPost("createUser")]
+
+        [HttpGet("GetUsers")]
+        public async Task<IActionResult> GetUsers()
+        {
+            try
+            {
+                var userDTOs = await _userService.GetUsersAsync();
+                return Ok(userDTOs);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error al obtener los usuarios: {ex.Message}");
+            }
+        }
+        [HttpPost("CreateUsers")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
-        public async Task<IActionResult> CrearUsuario(UserRequest usuarioDTO)
+        public async Task<IActionResult> CreateUser(UserRequest usuarioDTO)
         {
             try
             {
@@ -47,5 +57,6 @@ namespace EasyParking.Api.Controllers
                 return StatusCode(500, $"Error al crear el usuario: {ex.Message}");
             }
         }
+        
     }
 }

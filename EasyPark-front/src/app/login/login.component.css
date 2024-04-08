@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffffff;
+    
+  }
+  
+  .container .logo {
+    display: flex;
+    text-align: right;
+    justify-content: center;
+    margin-bottom: 70px;
+  }
+  
+  .container h2 {
+    text-align: center;
+    display: flex;
+    font-size: 40px;
+    justify-content: center;
+  }
+  
+  .container .logo-img {
+    margin-left: 10px;
+  }
+  
+  
+  .container {
+    
+    width: 400px;
+    height: 600px;
+    background-color: cyan;
+    padding: 20px;
+    border-radius: 51px;
+    -webkit-box-shadow: 10px 10px 28px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 28px -8px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 28px -8px rgba(0,0,0,0.75);
+    display: flex; /* Añade display: flex; */
+    flex-direction: column; /* Asegúrate de que los elementos se apilen verticalmente */
+    justify-content: center; /* Centra los elementos verticalmente */
+    background: linear-gradient(to right, rgba(143, 188, 255), rgba(0, 146, 184));
+    
+  }
+  
+  
+  
+  .user-container,
+  .password-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 15px;
+    margin-left: 10PX;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 15px;
+    border: none;
+    box-sizing: border-box;
+    font-weight: bold;
+    margin-top: 5px;
+  
+  }
+  
+  .input:focus {
+    outline: none;
+    box-shadow: 0 0 2px 1px rgba(0, 146, 184, 0.5);
+  }
+  
+  .user-container {
+    margin-bottom: 25px; /* Agrega un margen adicional entre el input de usuario y el input de contraseña */
+  }
+  
+  .container .login-button  {
+    
+    width: 200px;
+    height: 50px;
+    padding: 12px;
+    
+    border-radius: 25px;
+    border: none;
+    border-radius: 25px;
+    box-sizing: border-box;
+    font-weight: bold;
+    font-size: 15px;
+    margin: 5px auto 0; /* Centrar horizontalmente con margen superior */
+    display: block; /* Mostrar el botón en una línea separada */
+    background-color: #ffffff;
+    color: #000;
+    cursor: pointer;
+    margin-top: 50px;
+  }
+  
+  
+  
+  .container input[type="submit"]:hover {
+    background-color: #F7F7F7;
+  }
+  
+  .container .forgot {
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 10px;
+  }
+  
+  .container .forgot a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  .container .forgot a:hover {
+    text-decoration: underline;
+  }
+  
+  label{
+    font-weight: bold;
+  }

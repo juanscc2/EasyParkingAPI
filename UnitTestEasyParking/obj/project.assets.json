@@ -5462,23 +5462,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\juanc\\.nuget\\packages\\": {},
+    "C:\\Users\\juan.cortes\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\RepoProyecto\\EasyParking.Api\\UnitTestEasyParking\\UnitTestEasyParking.csproj",
+      "projectUniqueName": "D:\\Repo\\EasyParkingAPI\\UnitTestEasyParking\\UnitTestEasyParking.csproj",
       "projectName": "UnitTestEasyParking",
-      "projectPath": "C:\\RepoProyecto\\EasyParking.Api\\UnitTestEasyParking\\UnitTestEasyParking.csproj",
-      "packagesPath": "C:\\Users\\juanc\\.nuget\\packages\\",
-      "outputPath": "C:\\RepoProyecto\\EasyParking.Api\\UnitTestEasyParking\\obj\\",
+      "projectPath": "D:\\Repo\\EasyParkingAPI\\UnitTestEasyParking\\UnitTestEasyParking.csproj",
+      "packagesPath": "C:\\Users\\juan.cortes\\.nuget\\packages\\",
+      "outputPath": "D:\\Repo\\EasyParkingAPI\\UnitTestEasyParking\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\juanc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\juan.cortes\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -5493,8 +5493,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\RepoProyecto\\EasyParking.Api\\EasyParking.Api\\EasyParking.Api.csproj": {
-              "projectPath": "C:\\RepoProyecto\\EasyParking.Api\\EasyParking.Api\\EasyParking.Api.csproj"
+            "D:\\Repo\\EasyParkingAPI\\EasyParking.Api\\EasyParking.Api.csproj": {
+              "projectPath": "D:\\Repo\\EasyParkingAPI\\EasyParking.Api\\EasyParking.Api.csproj"
             }
           }
         }
@@ -5503,6 +5503,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -5546,7 +5551,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.404\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
       }
     }
   }

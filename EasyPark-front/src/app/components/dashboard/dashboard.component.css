@@ -1,0 +1,53 @@
+.padre_tabla {
+    margin: 50px;
+    
+}
+
+.salida {
+    width: 300px;
+}
+
+.btn_salida {
+    background-color: red;
+    border: none;
+    height: 60px;
+    width: 250px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+td {
+    height: 90px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+th {
+    vertical-align: middle;
+    text-align: center;
+}
+
+footer {
+    background-color: #fff;
+    -webkit-box-shadow: 0px -7px 31px -21px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px -7px 31px -21px rgba(0,0,0,0.75);
+    box-shadow: 0px -7px 31px -21px rgba(0,0,0,0.75);
+    height: 120px;
+    
+}
+.foter {
+    text-align: end;
+    margin: 25px;
+    
+}
+
+.btn_ingresar {
+    background-color: rgb(67, 255, 127);
+    border: none;
+    height: 60px;
+    width: 193px;
+    border-radius: 50px;
+    text-align: start;
+    font-weight: bold;
+    margin-left: 10px;
+}

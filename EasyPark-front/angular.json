@@ -60,7 +60,8 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "curso_angular:build:production"
+              "buildTarget": "curso_angular:build:production",
+              "proxyConfig": "proxy.configuration.json"
             },
             "development": {
               "buildTarget": "curso_angular:build:development"

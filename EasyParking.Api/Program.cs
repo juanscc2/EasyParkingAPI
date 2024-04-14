@@ -1,8 +1,6 @@
 using EasyParking.Api.Data;
 using EasyParking.Api.Services.Contracts;
 using EasyParking.Api.Services.Implementation;
-using FluentAssertions.Common;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +10,11 @@ builder.Services.AddDbContext<EasyParkingContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("EasyParkingConnection"));
 });
+builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
+{
+    builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+}));
+
 
 // Add services to the container.
 
@@ -25,12 +28,11 @@ builder.Services.AddScoped<UserService, UserServiceImplement>();
 
 var app = builder.Build();
 
-using(var scope= app.Services.CreateScope())
+using (var scope = app.Services.CreateScope())
 {
     var dataContext = scope.ServiceProvider.GetRequiredService<EasyParkingContext>();
     dataContext.Database.Migrate();
 }
-
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -43,6 +45,11 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+
+
 app.MapControllers();
+
+// Configuración de la URL para escuchar en el puerto 5000
+app.UseCors("corsapp");
 
 app.Run();

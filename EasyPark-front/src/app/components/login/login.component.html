@@ -1,0 +1,23 @@
+<body>
+<div class="container">
+    <div class="logo">    
+      <h2 class="empresa">EasyPark
+      <img src="./assets/check-img.png" alt="Logo" class="logo-img" height="53px" width="auto">
+      </h2>
+    </div>
+    <form >
+      <div class="user-container">
+        <label class="label" for="usuario">USUARIO</label>
+        <input class="input" type="text" name="Usuario" [(ngModel)] = "loginObj.Username" name="Username">
+      </div>
+      <div class="password-container">
+        <label class="label" for="password">CONTRASEÑA</label>
+        <input class="input" type="password" name="Contraseña" [(ngModel)]= "loginObj.Password" name="Password" required>
+      </div>
+      <input class="login-button" type="submit" value="Iniciar sesión" (click)="onLogin()">
+      <div class="forgot">
+        <a href="#">¿Olvidaste tu contraseña?</a>
+      </div>
+    </form>
+  </div>
+</body>    

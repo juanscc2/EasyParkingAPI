@@ -23,6 +23,7 @@ builder.Services.AddScoped<UserService, UserServiceImplement>();
 
 
 
+
 var app = builder.Build();
 
 using(var scope= app.Services.CreateScope())
@@ -38,6 +39,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
 
 app.UseHttpsRedirection();
 
